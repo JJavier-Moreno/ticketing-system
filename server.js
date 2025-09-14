@@ -1,16 +1,13 @@
-import express from "express";
 import dotenv from "dotenv";
-
-const app = express();
+import { app } from "./app.js";
 
 dotenv.config();
 
-app.get("/", (req,res)=>{
-    res.send("HOLA MUNDO");
-})
-
 const PORT = process.env.PORT || 4000;
 
-app.listen(PORT, ()=> {
+const server = app.listen(PORT, ()=> {
+    console.log(`Environment: ${process.env.NODE_ENV}`);
     console.log(`App listen on PORT: ${PORT}`);
 })
+
+export default server;
