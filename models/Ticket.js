@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import {v4 as uuidv4} from uuidv4;
+import {v4 as uuidv4} from "uuid";
 
 const ticketSchema = new mongoose.Schema({
     id: {

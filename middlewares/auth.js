@@ -8,7 +8,7 @@ export function auth(req, res, next) {
 
   if (!authHeader) return res.status(401).send("Acceso denegado. No existe token");
 
-  const [scheme, token] = token.split(" ");
+  const [scheme, token] = authHeader.split(" ");
   if (!token || scheme !== "Bearer") {
     res.status(401).send("Formato de token no válido");
   }

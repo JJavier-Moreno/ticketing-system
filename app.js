@@ -2,6 +2,9 @@ import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import {conn} from "./db.js";
+import userRoutes from "./routes/userRoutes.js";
+import ticketRoutes from "./routes/ticketRoutes.js";
+
 
 export const app = express();
 
@@ -12,8 +15,8 @@ conn;
 app.use(morgan("dev"));
 app.use(express.json());
 
-app.get("/", (req,res)=>{
-    res.send("HOLA MUNDO");
-})
+
+app.use("/api/users", userRoutes);
+app.use("/api/tickets", ticketRoutes);
 
 
