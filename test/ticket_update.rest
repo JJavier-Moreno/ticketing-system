@@ -1,8 +1,0 @@
-PUT http://localhost:3000/api/tickets/59b2874a-1910-4458-95af-e95a6297cfad HTTP/1.1
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGM2ZWU4YzU0NDQ1NmIxN2U0NTY5OTUiLCJyb2xlIjoidXNlciIsImlhdCI6MTc1Nzg2ODc4OCwiZXhwIjoxNzU3ODcyMzg4fQ.stWB4D0ogkhW8MWtngkzQjwcBtFLXDFzsbPQXQ7fSnY
-
-{
-    "title": "Ticket de prueba #2",
-    "description": "Titulo del ticket de prueba #2"
-}

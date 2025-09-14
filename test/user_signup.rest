@@ -1,9 +1,0 @@
-//Test para comprobar el funcionamiento del registro de un usuario.
-POST http://localhost:3000/api/users/signup HTTP/1.1
-Content-Type: application/json
-
-{
-    "email" : "josejavier.frz@gmail.com",
-    "password" : "12345678",
-    "name": "Jose Javier"
-}
