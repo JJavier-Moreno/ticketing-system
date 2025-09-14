@@ -1,22 +1,25 @@
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 
-export function auth(req, res, next){
-   const token = req.header("Authorization");
+dotenv.config();
 
-   if(!token) return res.status(401).send("Acceso denegado. No existe token");
+export function auth(req, res, next) {
+  const authHeader = req.header("Authorization");
 
-    const header = token.split("")[0];
-    if(!header || header !== "Bearer"){
-        res.status(403).json("No puedes acceder");
-    }
+  if (!authHeader) return res.status(401).send("Acceso denegado. No existe token");
 
-    try{
+  const [scheme, token] = token.split(" ");
+  if (!token || scheme !== "Bearer") {
+    res.status(401).send("Formato de token no válido");
+  }
 
-    }catch(err){
-        res.status(400).send('Token no válido');
-    }
+  try {
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = payload;
+    next();
 
-    const payload = jwt.verify(token, )
 
-
+  } catch (err) {
+    res.status(401).send("Token no válido");
+  }
 }
